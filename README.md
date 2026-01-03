@@ -1,2 +1,2 @@
-# life-of-the-heir
+# life-of-the-hare
 For AI project

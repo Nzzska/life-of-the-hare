@@ -1,0 +1,1 @@
+DEFAULT_CONFIG = {"W":15, "H":15, "N_wolves": 2, "M":10, "N": 10, "K":3}
