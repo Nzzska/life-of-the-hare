@@ -78,10 +78,10 @@ def animate_episode(trackers, episode_idx=0, W=15, H=15, interval=50, save_path=
     plt.show()
 
 if __name__ == "__main__":
-    trackers = load_trackers("outputs/trackers.pkl")
+    trackers = load_trackers("outputs/trackers_smth.pkl")
 
     # Adjust W/H to your env config if needed
-    animate_episode(trackers, episode_idx=1999, W=15, H=15, interval=1000)
+    animate_episode(trackers, episode_idx=200, W=15, H=15, interval=1000)
 
     # To save:
     # animate_episode(trackers, episode_idx=0, W=15, H=15, interval=50, save_path="outputs/ep0.gif")

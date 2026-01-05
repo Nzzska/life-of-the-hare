@@ -11,7 +11,8 @@ from .rules import (
     calm_wolf_move,
     hunting_wolf_move,
     chase_direction,
-    snap_to_diagonal
+    snap_to_diagonal,
+    manhattan
 )
 
 Pos = Tuple[int,int]
@@ -68,10 +69,16 @@ class HareEnv:
         For now return a simple python structure.
         Later replace with obs.encode_discrete(...) or obs.encode_vector(...).
         """
+        observable_wolves = []
+        for w in state.wolves:
+            if manhattan(state.hare.pos, w.pos) > 4:
+                continue
+            else:
+                observable_wolves.append((w.pos, w.is_hunting, w.direction))
         return {
             "hare_pos": state.hare.pos,
             "energy": state.hare.energy,
-            "wolves": [(w.pos, w.is_hunting, w.direction) for w in state.wolves],
+            "wolves": observable_wolves,
             "carrots": list(state.carrots),
             "step": state.step_count,
         }

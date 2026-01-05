@@ -4,13 +4,13 @@ from src.agents.q_table import QTableAgent
 from src.utils.io import save_trackers
 
 def run():
-    cfg = EnvConfig(start_energy=1000, n_carrots=2, K=200)
+    cfg = EnvConfig(start_energy=1000, n_carrots=5, K=200)
     env = HareEnv(cfg, seed=0)
     agent = QTableAgent(n_actions=env.n_actions)
 
     trackers = []
 
-    for ep in range(4000):
+    for ep in range(2000):
 
         hare_pos_tracker = []
         wolfs_tracker = []
@@ -59,4 +59,4 @@ def run():
 
 if __name__ == "__main__":
     trackers = run()
-    save_trackers(trackers, "outputs/trackers_K200.pkl")
+    save_trackers(trackers, "outputs/trackers_smth.pkl")
